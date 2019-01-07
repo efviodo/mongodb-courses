@@ -1,0 +1,10 @@
+In this video, we use a data set for "London Bikes." We aren't attaching it as a handout because it's rather large, but you can download it from the following link:
+
+https://s3.amazonaws.com/university-courses/handouts/londonbikes.tgz
+
+London Bikes
+This link is also in the shell script in the handout, which will wget it.
+
+________
+
+

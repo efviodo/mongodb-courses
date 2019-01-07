@@ -1,0 +1,20 @@
+You can download the [people.json](https://s3.amazonaws.com/m312/people.json) dataset here.
+
+___
+## Como ver la creación de un indice en los log de mongo
+
+``` 
+mlogfilter $logpath --component INDEX
+```
+
+También puedo ver la traza de las operaciones de creación de un índice en la componente COMMAND:
+
+``` 
+mlogfilter $logpath --component COMMAND
+```
+
+Como obtener el logPath:
+
+``` 
+logPath=$(ps -ef | grep mongo | grep 30000 | awk '{ print $14}')
+``` 

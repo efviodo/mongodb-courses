@@ -1,0 +1,24 @@
+**Chapter 3: Slow Queries**
+
+## Fixing missed Indexes
+
+### Personal notes
+
+
+#### How to see the creation of an index in the mongo log?
+
+``` 
+mlogfilter $logpath --component INDEX
+```
+
+También puedo ver la traza de las operaciones de creación de un índice en la componente COMMAND:
+
+``` 
+mlogfilter $logpath --component COMMAND
+```
+
+Como obtener el logPath:
+
+``` 
+logPath=$(ps -ef | grep mongo | grep 30000 | awk '{ print $14}')
+``` 
