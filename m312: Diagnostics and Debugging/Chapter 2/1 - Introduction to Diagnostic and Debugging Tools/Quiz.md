@@ -1,0 +1,32 @@
+**Chapter 2: Tooling Overview**
+
+# Introduction to Diagnostic and Debugging Tools
+
+**Problem**
+If you want tools to help you parse and visualize the log files, which of the following would be the best place to look?
+
+Choose the best answer:
+
+- [ ] mongostat
+- [ ] mongoreplay
+- [ ] mtools
+- [ ] mongotop
+- [ ] mongooplog
+
+___
+
+**Correct answer**
+
+The one correct answer is mtools, which includes the log parsing tool, mlogfilter, and the visualization tools, mlogvis and mplotqueries, as well as mloginfo, the log parsing tool.
+
+**Incorrect answers**
+
+Mongostat is good for determining current activity on a server, but not for dealing with log files.
+
+Mongotop is good for determining how current activity is distributed across collections/databases, but not with dealing with log files.
+
+Mongoreplay is good for recreating a query load at a later time and another location, but not for dealing with log files.
+
+Mongooplog is for locally applying oplog entries polled from a remote server. It does not deal with the server logs, just the oplog (or operations log).
+
+

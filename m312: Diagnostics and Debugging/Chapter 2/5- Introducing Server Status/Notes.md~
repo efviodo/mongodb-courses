@@ -1,0 +1,7 @@
+**Chapter 2: Tooling Overview**
+
+## Asserts
+
+- Asserts can give us some important information about conflicts at server level like constraint violations and so on.
+
+- command: db.ServerStatus.asserts
