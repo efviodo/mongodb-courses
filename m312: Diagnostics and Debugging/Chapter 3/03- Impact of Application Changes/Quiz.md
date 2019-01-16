@@ -14,10 +14,11 @@ ___
 **Answer**
 The following are correct. Keeping historical monitoring data allows you to ...
 
--   predict the normal behavior of your application.
-    -   With historical data, you should be able to predict what your application's behavior will look like, to the database, for normal behavior.
--   compare your current application performance with benchmarked data.
-    -   With historical data, you can compare current performance with historical benchmarks, a useful way of determining if your behavior is normal or not.
+* predict the normal behavior of your application.
+  * With historical data, you should be able to predict what your application's behavior will look like, to the database, for normal behavior.
+
+* compare your current application performance with benchmarked data.
+  * With historical data, you can compare current performance with historical benchmarks, a useful way of determining if your behavior is normal or not.
 
 This is incorrect:
 

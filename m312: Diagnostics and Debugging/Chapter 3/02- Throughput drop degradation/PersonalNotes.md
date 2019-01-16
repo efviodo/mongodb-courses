@@ -4,6 +4,16 @@
 
 ### Personal notes
 
+#### Possible causes for a drop in throughput
+
+* Long running queries
+  * Collection scan: You do not have an appropriate index for the query, forcing the server to do a full collection scan
+  * Poorly anchored regex
+  * Inneficient index usage: Some times you are using indexes but not in the most effiency way, for example when you cant resolve all query using the index.
+* Index build: There is an index built in process.
+* Write contention
+
+
 #### How an update query does it works on WiredTiger?
 
 First of all, MongoDB creates a new version of the document. Onces the new document is inserted (which is done in a single CPU operation) the pointer to the first document is replaced to the second. In this way you can make reads and write at the same time.  While the new version of the document is being written, incoming reads are performed on the old document version. 
@@ -16,3 +26,5 @@ If you have these issue you will see a bunch of slow queries for example in mong
 
  - writeConflicts
  - numYields
+
+**If we have this kind of problems we must review our schema and try to split the information in several different document in order to avoid write conflicts.**

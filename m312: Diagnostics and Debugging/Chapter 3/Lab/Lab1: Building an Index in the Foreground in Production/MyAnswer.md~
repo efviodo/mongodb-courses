@@ -17,3 +17,9 @@ mlogfilter $logpath --component COMMAND
 ```
 mloginfo $logpath --queries
 ```
+
+## Displaying slow queries in a plot
+
+**Answer**
+
+Less than one second after the index build ended

@@ -1,0 +1,23 @@
+# Top slowest queries 
+First of all take a look to the collection
+
+**Get first document**
+
+db.getCollection("profiler_data").find({}).limit(1).pretty()
+
+**Just by curiosity the slowest queries**
+
+db.getCollection("profiler_data").find({}).sort({"millis": -1}).limit(10).pretty()
+
+**Find the fastest queries**
+
+Find the fastest queries to know whichs index are using.
+
+db.getCollection("profiler_data").find({}).sort({"millis": -1}).limit(10).pretty()
+
+**Find first query that does not use a COLLSACN as planSummary**
+Using the following query we retrive the first query that use a plan summary different to collscan
+
+```
+db.profiler_data.find({planSummary: {$ne: "COLLSCAN"}}).sort({ts:1}).limit(1)
+```
