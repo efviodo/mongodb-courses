@@ -22,4 +22,5 @@ Using the following query we retrive the first query that use a plan summary dif
 db.profiler_data.find({planSummary: {$ne: "COLLSCAN"}}).sort({ts:1}).limit(1)
 ```
 
-**How to know when index has effect?**
+**How to know when index had effect?**
+To know when the index has effect we must know the last query before the index creation date whose is a COLLSCAN and at the same time is a query that actually use the index.

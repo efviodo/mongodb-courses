@@ -1,0 +1,19 @@
+**Chapter 4: Connectivity**
+
+## Timeouts
+
+**Problem**
+
+wtimeout can be set by the application to guarantee that:
+
+Check all answers that apply:
+
+
+- [ ] If a write is acknowledged, the replica set has applied the write on a number of servers within the specified wtimeout.
+
+- [ ] MongoDB will roll back the write operations if the nodes do not acknowledge the write operation within the specified wtimeout.
+
+- [ ] The application will learn how many servers have performed the write within wtimeout.
+
+___
+**Answer**

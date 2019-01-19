@@ -1,0 +1,12 @@
+**Chapter 4: Connectivity**
+
+## Timeouts
+
+- One interesting thing about wtimeout is that even if the timeout is achieved and replies to your application with a *timeout* error, it does not means that the operations was rolled back. It still apply the operation at least on the PRIMARY node.
+
+```
+db.foo.insertOne( { hello: 'world' }, { writeConcern: { w: 3, wtimeout:1 } } );
+```
+
+### Execution timeouts
+Execution timeouts can be used for set a maximum execution time for a specific query. In this way you can limit the server utilization and prevent server exhaustion by aggressive or bad designed queries.

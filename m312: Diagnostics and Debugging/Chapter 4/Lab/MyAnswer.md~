@@ -1,0 +1,33 @@
+# Solution
+
+- Start connecting to each replica set and test status. You will see that 30000 is the Primary and other two are Secondaries nodes.
+
+- After that check mongostat to see what is happening (I am using with --discover option):
+
+```
+mongostat --discover --port 30000
+```
+
+           host insert query update delete getmore command dirty  used flushes vsize  res qrw arw net_in net_out conn    set repl                time
+localhost:30000     *0    *0     *0     *0       4   169|0  0.0% 29.9%       0 1.28G 269M 0|0 0|0  13.6k    127k  231 m312rs  PRI Jan 19 16:36:40.543
+localhost:30001     *0    *0     *0     *0       0     3|0  0.0% 29.9%       0 1.20G 237M 0|0 0|0   477b   46.9k  226 m312rs  SEC Jan 19 16:36:39.553
+localhost:30002     *0    *0     *0     *0       0     2|0  0.0% 29.9%       0 1.21G 239M 0|0 0|0   317b   46.5k  226 m312rs  SEC Jan 19 16:36:39.552
+
+localhost:30000     *0    *0     *0     *0       0     3|0  0.0% 29.9%       0 1.28G 269M 0|0 0|0   477b   46.9k  231 m312rs  PRI Jan 19 16:36:41.543
+localhost:30001     *0    *0     *0     *0       0   164|0  0.0% 29.9%       0 1.20G 237M 0|0 0|0  9.80k    121k  227 m312rs  SEC Jan 19 16:36:40.549
+localhost:30002     *0    *0     *0     *0       0   165|0  0.0% 29.9%       0 1.21G 239M 0|0 0|0  9.94k    122k  227 m312rs  SEC Jan 19 16:36:40.551
+
+localhost:30000     *0    *0     *0     *0       0     2|0  0.0% 29.9%       0 1.28G 269M 0|0 0|0   158b   46.1k  231 m312rs  PRI Jan 19 16:36:42.543
+localhost:30001     *0    *0     *0     *0       0     3|0  0.0% 29.9%       0 1.20G 240M 0|0 0|0   476b   46.8k  227 m312rs  SEC Jan 19 16:36:41.552
+localhost:30002     *0    *0     *0     *0       0     2|0  0.0% 29.9%       0 1.21G 239M 0|0 0|0   317b   46.5k  227 m312rs  SEC Jan 19 16:36:
+
+From mongostat we can deduce that there is an incredible amount of new connections what is causing memory consumption increase.
+
+- Second we can connect to each replica set member and check available connections vs used connections.
+
+```
+db.serverStatus().connections
+{ "current" : 165, "available" : 654, "totalCreated" : 345 }
+```
+
+As we can see we still have available connections but we are using more and more connections.
