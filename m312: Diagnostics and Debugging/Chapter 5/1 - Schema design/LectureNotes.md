@@ -1,0 +1,1 @@
+For this lesson, the VM has been updated. You can download it again from the handout above, vagrant destroy your current box, and vagrant up the new one, or you can update yours with sudo pip install faker to run generate_bad_schema.py.

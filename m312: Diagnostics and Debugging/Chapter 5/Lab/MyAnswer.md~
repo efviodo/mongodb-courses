@@ -1,0 +1,28 @@
+# Solution
+
+1. Enable mongo profiling
+```
+db.setProfilingLevel(2);
+```
+
+2. Each enter you get over 10 new queries.
+
+```
+db.system.profile().count()
+```
+
+3. Try to understand queries
+
+```
+db.system.profile.find({}, {planSummary: 1});
+```
+
+```
+db.system.profile.find({}, {planSummary: 1, op: 1, query: 1, ns: 1}).pretty();
+```
+
+4. Understanding schema design
+
+```
+db.users.find({}).limit(1).pretty();
+```
