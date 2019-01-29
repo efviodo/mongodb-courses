@@ -13,11 +13,14 @@ Check all answers that apply:
 **Answer**
 - db.currentOp() can be used to find long-running processes.
 
+
 >**Correct!**
 
 - Background index builds may result in a drop in performance.
 
-> **False**, a foreground index build may cause performance issues due to more memory consumption and collection locks. A background index build avoid locks in a collection, performing the operation when the server can lock the collection for a short periods of time. For this reason this strategy takes longer than foreground but is more safe for production enviroments where you can not disable it for applications in a maintainance window.
+> **Correct!** 
+
+- Even in background
 
 - If the `.explain()` plan is showing that a query is using an index, then that query has definitely been fully optimized.
 
@@ -102,10 +105,10 @@ Given that we don't change the chunkSize settings, which of the following is/are
 
 Check all answers that apply:
 
-- [X] Jumbo chunks can be moved automatically by MongoDB.
-- [X] Jumbo chunks can be split automatically, if the shard key allows it.
+- [ ] Jumbo chunks can be moved automatically by MongoDB.
+- [ ] Jumbo chunks can be split automatically, if the shard key allows it.
 - [X] Jumbo chunks can be split manually, if the shard key allows it.
-- [X] Jumbo chunks can be moved manually.
+- [ ] Jumbo chunks can be moved manually.
 
 ## Question 6
 
